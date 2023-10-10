@@ -18,7 +18,7 @@ if __name__ == "__main__":
         for i in range(start, finish + 1):
             print(i)
             h_arr, r_arr = mb.generate_arrays(i, 0.1, 1)
-            mb.rec_stab(400, h_arr, r_arr)
+            mb.rec_stab(4000, h_arr, r_arr)
             RobotATS.delayed = []
             mb.save_conf(f"{i}", f"res/{cluster}/01/{start}_{finish}.bin", roads[1], h_arr, r_arr)
             roads[1].clear_road()
@@ -31,7 +31,7 @@ if __name__ == "__main__":
             rm, h_arr, r_arr = mb.load_conf(f"{i}", f"res/{cluster}/01/{start}_{finish}.bin")
             roads[1] = rm
             RobotATS.delayed = []
-            mb.rec_stat(500, h_arr, r_arr)
-            v.v = v.v / (500 * i)
-            mb.save_stat(i / 100, v.v, f"res/{cluster}/01/{start}_{finish}.txt")
+            mb.rec_stat(5000, h_arr, r_arr)
+            v.v = v.v / (5000 * i)
+            mb.save_stat(i / 1000, v.v, f"res/{cluster}/01/{start}_{finish}.txt")
     print(time.time() - start_time)
