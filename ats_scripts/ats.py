@@ -18,6 +18,7 @@ class ATS:
         self.s = 0
         # Время АТС в движении с момента запуска модели.
         self.t = 0
+        self.moved = 0
         rm.fill_cell(self.position, self.ats_type)
 
     def __del__(self):
@@ -25,6 +26,12 @@ class ATS:
 
     def __repr__(self):
         return f"ATS({self.position}, {self.ats_type})"
+
+    def set_moved(self):
+        self.moved = 1
+
+    def reset_moved(self):
+        self.moved = 0
 
     # Ищет координаты ближайшего АТС и определяет его тип.
     def find_closest_ats(self, rm):

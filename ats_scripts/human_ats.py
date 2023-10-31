@@ -26,4 +26,18 @@ class HumanATS(ats.ATS):
         section = np.random.uniform(0, 1, 10)
         # случай движения (a), (b).
         if np.random.choice(section) <= self.find_p(rm):
+            self.moved = 1
             self.move_coord()
+
+
+class LazyATS(HumanATS):
+    def __init__(self, position, rm, key):
+        super().__init__(position, rm, key)
+
+    def find_p(self, rm):
+        dist = self.find_dist(rm)
+        try:
+            dists = {0: 0, 1: 0.05, 2: 0.1, 3: 0.3}
+            return dists[dist]
+        except KeyError:
+            return 1
