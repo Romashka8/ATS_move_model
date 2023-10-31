@@ -1,4 +1,3 @@
-# в классе Road используется паттерн MonoState.
 import numpy as np
 
 
