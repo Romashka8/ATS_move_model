@@ -10,13 +10,7 @@ class RobotATS(ats.ATS):
 
     def __init__(self, position, rm, key):
         super().__init__(position, "Robot", rm, key)
-        # self.moved = 0
 
-    # def set_moved(self):
-    #     self.moved = 1
-    #
-    # def reset_moved(self):
-    #     self.moved = 0
 
     def move(self):
         from road_scripts.road import roads
